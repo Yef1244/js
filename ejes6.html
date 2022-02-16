@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Manejo de JavaScript Avanzado</title>
+    <script>
+            let nota1 = 3.5
+            let nota2 = 4
+            let nombre = "Yeferson"
+            let asignatura  = "Moviles 3"
+            let estado = true
+            if (estado){ 
+                console.log(`Su estado es activo y su nombre es: ${nombre}`)
+            }
+            for (let i = 1; i <= 10; i++){
+                if(i % 2 == 1){
+                    console.log(`el número ${i} es impar`)
+                }
+            }
+            console.log(" ")
+            
+            
+            //-------------------------------------------------------- while ------------------------------------------------------------
+            let c = 1
+            while (c <= 10){
+                if (c % 2 == 0){
+                    console.log(`El número ${c} es par`)
+                }
+                c+=1;
+            }
+            console.log(" ")
+            
+            disponible = estado ? `Disponible` : `No Disponible`
+            console.log(disponible)
+            console.log(" ")
+
+            //----------------------------------------------------- do...while ----------------------------------------------------
+            let x = 1
+            do {
+                console.log(x)
+                x +=1
+            } while (x <= 10)
+
+            console.log(" ")
+    
+            //array
+            numeros = [10,20,30,40,50]
+            for (let pos=0; pos < numeros.length; pos++){
+                console.log(numeros[pos])
+            }
+
+            console.log(" ")
+
+            //---------------------------------- for...of: Recorrer (iterador) una lista o vector -----------------------------------
+            for (numero of numeros){
+                console.log(`El número del array es ${numero}`)
+            }
+            console.log(" ")
+
+            //------------------------------------------------variable tipo objeto ------------------------------------------------------
+            let datosemp = {
+                "di":"10",
+                "nombre":"Peranito Gil",
+                "estado":true,
+                "salario":2500000
+            }
+            console.log(datosemp)
+            //Mostrar el nombre del objeto datosemp
+            console.log(`El nombre del empleado es: ${datosemp["nombre"]}`)
+            console.log(`Identificacion: ${datosemp["di"]} y su salario es: ${datosemp["salario"]}`)
+            console.log(" ")
+
+            //--------------------------------------------- iterar en el objeto datosemp (for...in) -------------------------------------
+            for (campo in datosemp){
+                console.log(`${campo}: ${datosemp[campo]}`)
+            }
+            console.log(" ")
+
+            // ---------------------------------------------------- FUNCIONES ----------------------------------------------------------
+            function mensaje(mens){
+                console.log(mens)
+            }
+            mensaje("Hola Mundo, desde la función de mensaje")
+            mensaje("Bienvenid@ al sistema")
+            console.log(" ")
+
+            function calcular(val1,val2,operador){
+                let resultado
+
+                switch (operador){
+                    case "+":
+                        resultado = val1 + val2
+                        break
+                    
+                    case "-":
+                        resultado = val1 - val2
+
+                    case "*":
+                        resultado = val1 * val2
+                        break
+                    
+                    case "/":
+                        resultado = val1 / val2
+                        break
+                    default:
+                        resultado = 0
+                        break                  
+                }
+                return resultado
+            }
+            //--------------------------------------------------- Utilización ---------------------------------------------------------
+            //----------------------------- Asignar a una variable lo que retorna la función calcular ---------------------------------
+            misuma = calcular(12,78,"+")
+            miresta = calcular(12,78,"-")
+            mimultip = calcular(12,78,"*")
+            midiv = calcular(12,78,"/")
+
+            console.log(`La suma es: ${misuma} La resta es: ${miresta}`)
+            console.log(`Otra suma ${calcular(15,34,"+")}`)
+
+            if (calcular(4300,6300,"*") > 2000000){
+                console.log("Es superior a 2 millones")
+            }
+            else{
+                console.log("Es igual o inferior a 2 millones")
+            }
+
+            console.log(calcular(25,5,"+") > 50 ? "Es superior a 50" : "Es inferior o igual a 50")
+            console.log(" ")
+
+            /* -------------- Generar una funcion que permita retornar una cadena con la serie de fibonacci (0,1,1,2,3,5,8,13,21,34,55,89) ---------
+            ------------------------------------    indicando la cantidad de número a devolver      -----------------------------------------------*/
+
+            let fibonacci = [0,1,1,2,3,5,8,13,21,34,55,89]
+            for (let a=0; a < fibonacci.length; a++){
+                console.log(fibonacci[a])
+            }
+            console.log(" ") 
+
+            fibonacci.length
+
+        </script>
+</head>
+<body style="background: black;">
+
+    <h1>
+        Manejando JS
+    </h1>
+    
+
+</body>
+</html>
