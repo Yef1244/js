@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CallBacks - promise</title>
+</head>
+<body>
+    <h1>Manejo de Callbacks y Promise</h1>
+    <img src="img/200.gif" alt="imagen de carga" id="imagen">
+    <br>
+    <span id="datos" style="color:rebeccapurple; font-size: 2opx;">
+
+    </span>
+
+    <script>
+        let myimage = document.getElementById('imagen')
+        myimage.style.visibility = "hidden"
+        /*function sumar(num1, num2){
+            return parseFloat(num1) + parseFloat(num2)
+        }*/
+
+        function operacion(num1, num2, operador){
+            let resultado = 0
+            switch (operador) {
+                case "+":
+                resultado = parseFloat(num1) + parseFloat(num2)
+                break
+
+                case "-":
+                resultado = parseFloat(num1) - parseFloat(num2)
+                break
+
+                case "*":
+                resultado = parseFloat(num1) * parseFloat(num2)
+                break
+
+                case "/":
+                resultado = parseFloat(num1) / parseFloat(num2)
+                break
+            }
+            return resultado
+        }
+
+        function fncallback(fnc){
+            let valor1 = prompt('Ingrese Valor 1')
+            let valor2 = prompt('Ingrese Valor 2')
+            let operador = prompt('Ingrese operador (+, -, *, /)')
+            return fnc(valor1, valor2, operador)
+        }
+        //uso fncallback
+        //console.log(`El resultado es: ${fncallback(operacion)}`)
+
+        function servidor(){
+            setTimeout(function(){
+                let datosal = {
+                    cedula:"158",
+                    nombre:"Yeferson",
+                    salario:2500000
+                }
+                //console.log('El servidor ha generado una respuesta...')
+                console.log(`Cedula: ${datosal.cedula}, Nombre: ${datosal.nombre}, Salario: ${datosal.salario}`)
+                let misdatos = document.getElementById('datos')
+                misdatos.innerHTML = datosal.cedula + " " + datosal.nombre + " " + datosal.salario
+                myimage.style.visibility = "hidden"
+            },5000)
+        }
+
+        function fcpeticion(fn){
+            fn() //Simular la peticion al servidor
+            console.log('espere por favor, buscando información...')
+            myimage.style.visibility = "visible"
+        }
+        //Ejecución del callback
+        //fcpeticion(servidor)
+
+        let promise1 = new Promise((resolve,reject)=>{
+            let mystate = true
+            if(mystate){
+                resolve('Está habilitado')
+            }
+            else{
+                reject('No está habilitado')
+            }
+        })
+        //Utilización
+        let misdatos = document.getElementById('datos')
+        promise1
+            .then((message)=>{
+                misdatos.innerHTML = message
+            })
+            .then(()=>{
+                misdatos.innerHTML += '.Se puede liquidar el empleado'
+            })
+            .catch(function(error){
+                misdatos.innerHTML = error
+            })
+
+    </script>
+</body>
+</html>
